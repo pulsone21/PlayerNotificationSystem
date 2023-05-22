@@ -7,7 +7,7 @@ namespace PopUps
     {
         public string HeaderText, ContentText, OkLabel, CancleLabel, AltLabel;
         public Sprite Image;
-        public ModalType type;
+        public ContentOrientation type;
         public UnityEvent OnOkEvent, OnCancleEvent, OnAlternativeEvent;
         public void ShowModal()
         {

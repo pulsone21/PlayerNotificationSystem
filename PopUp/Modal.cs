@@ -7,7 +7,7 @@ namespace PopUps
     [System.Serializable]
     public class Modal
     {
-        public ModalType ModalType;
+        public ContentOrientation ModalType;
         public GameObject UI;
     }
 }

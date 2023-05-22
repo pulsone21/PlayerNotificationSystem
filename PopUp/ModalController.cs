@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 using UnityEngine.Events;
 
 namespace PopUps
@@ -20,58 +19,58 @@ namespace PopUps
 
         [Space(5f)]
         [Header("Footer Settings")]
-        [SerializeField] private Button confirmButton;
-        [SerializeField] private TextMeshProUGUI confirmButtonText;
-        [SerializeField] private Button cancleButton;
-        [SerializeField] private TextMeshProUGUI cancleButtonText;
-        [SerializeField] private Button alternativeButton;
-        [SerializeField] private TextMeshProUGUI alternativeButtonText;
-        public void ShowModal(string Header, string Content, UnityAction OnOkAction, string OkLabel = null)
-        {
-            ShowModal(Header, Content, OnOkAction, null, null, null, OkLabel, null, null);
-        }
-        public void ShowModal(string Header, string Content, UnityAction OnOkAction, UnityAction OnCancleAction = null, UnityAction OnAlternativeAction = null, Sprite image = null, string OkLabel = null, string CancleLabel = null, string alternativeLable = null)
-        {
-            HeaderText.text = Header;
-            ContentText.text = Content;
+        [SerializeField] private Transform ButtonContainer;
+        [SerializeField] private Transform ButtonPrefab;
 
-            if (image != null)
+        public void ShowModal(ModalContent content,
+                            UnityAction OnOkAction,
+                            string OkLabel,
+                            UnityAction OnCancleAction = null,
+                            UnityAction OnAlternativeAction = null,
+                            string CancleLabel = null,
+                            string alternativeLable = null)
+
+        {
+            SetDefaults(content);
+            CreateButton(OkLabel, OnOkAction);
+            if (OnCancleAction != null) CreateButton(CancleLabel, OnCancleAction);
+            if (OnAlternativeAction != null) CreateButton(alternativeLable, OnAlternativeAction);
+            Show();
+        }
+
+        public void ShowModal(ModalContent content, List<ModalAction> ModalActions)
+        {
+            SetDefaults(content);
+            foreach (ModalAction action in ModalActions)
             {
-                Image.sprite = image;
+                CreateButton(action.ButtonLable, action.ClickAction);
+            }
+            Show();
+        }
+
+        private void CreateButton(string lable, UnityAction action)
+        {
+            Button btn = Instantiate(ButtonPrefab, Vector3.zero, Quaternion.identity, ButtonContainer).GetComponent<Button>();
+            btn.onClick.AddListener(action);
+            btn.onClick.AddListener(CloseModal);
+            btn.GetComponentInChildren<TextMeshProUGUI>().text = lable;
+        }
+
+        private void SetDefaults(ModalContent content)
+        {
+            HeaderText.text = content.Header;
+            ContentText.text = content.Text;
+
+            if (content.Image != null)
+            {
+                Image.sprite = content.Image;
                 Image.gameObject.SetActive(true);
             }
             else
             {
                 Image.gameObject.SetActive(false);
             }
-
-            confirmButton.onClick.AddListener(OnOkAction);
-            if (OkLabel.Length > 0) confirmButtonText.text = OkLabel;
-
-            if (OnCancleAction != null)
-            {
-                cancleButton.onClick.AddListener(OnCancleAction);
-                if (CancleLabel.Length > 0) cancleButtonText.text = CancleLabel;
-                cancleButton.gameObject.SetActive(true);
-            }
-            else
-            {
-                cancleButton.gameObject.SetActive(false);
-            }
-
-            if (OnAlternativeAction != null)
-            {
-                alternativeButton.onClick.AddListener(OnAlternativeAction);
-                if (alternativeLable.Length > 0) alternativeButtonText.text = alternativeLable;
-                alternativeButton.gameObject.SetActive(true);
-            }
-            else
-            {
-                alternativeButton.gameObject.SetActive(false);
-            }
-            Show();
         }
-
         private void Show() => gameObject.SetActive(true);
 
         public void CloseModal()

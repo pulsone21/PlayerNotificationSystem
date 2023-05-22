@@ -18,7 +18,7 @@ namespace PopUps
 
             if (GUILayout.Button("Get Vertical Modal"))
             {
-                mT.type = ModalType.Vertical;
+                mT.type = ContentOrientation.Vertical;
                 mT.ShowModal();
             }
 
@@ -26,7 +26,7 @@ namespace PopUps
 
             if (GUILayout.Button("Get Horizontal Modal"))
             {
-                mT.type = ModalType.Horizontal;
+                mT.type = ContentOrientation.Horizontal;
                 mT.ShowModal();
             }
 

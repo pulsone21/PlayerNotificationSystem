@@ -6,7 +6,7 @@ using System;
 
 namespace PopUps
 {
-    public enum ModalType { Vertical, Horizontal }
+    public enum ContentOrientation { Vertical, Horizontal }
     public class PopUpWindowManager : MonoBehaviour
     {
         public static PopUpWindowManager Instance;
@@ -25,35 +25,38 @@ namespace PopUps
             }
         }
 
-        //?  POPUP Types -> Confirmation, Information, CityInformation
-        //PopUp for Confirmation
-        public static void ShowPopUp(ModalType type, string Header, string Content, UnityAction OnOkAction, UnityAction OnCancleAction, UnityAction OnAlternativeAction = null, Sprite image = null, string OkLabel = null, string CancleLabel = null, string alternativeLable = null)
+        public static void ConfirmationPopup(ModalContent Content, UnityAction OnOkAction, string OkLabel, UnityAction OnCancleAction, string CancleLabel, UnityAction OnAlternativeAction = null, string alternativeLable = null)
         {
-            Modal modal = Instance.GetModalByType(type);
-            if (modal != default)
-            {
-                //? only set active if there is no other modal Open.
-                if (Instance.activeModals.Count < 1) Instance.Container.SetActive(true);
-                ModalController controller = Instantiate<GameObject>(modal.UI, Instance.Container.transform).GetComponent<ModalController>();
-                Instance.activeModals.Add(controller);
-                controller.ShowModal(Header, Content, OnOkAction, OnCancleAction, OnAlternativeAction, image, OkLabel, CancleLabel, alternativeLable);
-            }
+            ModalController controller = GetController(Content.Orientation);
+            if (controller == default) return;
+            controller.ShowModal(Content, OnOkAction, OkLabel, OnCancleAction, OnAlternativeAction, CancleLabel, alternativeLable);
         }
 
-        public static void ShowPopUp(ModalType type, string Header, string Content, UnityAction OnOkAction, string OkLabel = null)
+        public static void InformationPopup(ModalContent Content, UnityAction OnOkAction, string OkLabel)
         {
-            Modal modal = Instance.GetModalByType(type);
-            if (modal != default)
-            {
-                //? only set active if there is no other modal Open.
-                if (Instance.activeModals.Count < 1) Instance.Container.SetActive(true);
-                ModalController controller = Instantiate<GameObject>(modal.UI, Instance.Container.transform).GetComponent<ModalController>();
-                Instance.activeModals.Add(controller);
-                controller.ShowModal(Header, Content, OnOkAction, OkLabel);
-            }
+            ModalController controller = GetController(Content.Orientation);
+            if (controller == default) return;
+            controller.ShowModal(Content, OnOkAction, OkLabel);
         }
 
-        private Modal GetModalByType(ModalType type)
+        public static void CustomPopup(ModalContent Content, List<ModalAction> Actions)
+        {
+            ModalController controller = GetController(Content.Orientation);
+            if (controller == default) return;
+            controller.ShowModal(Content, Actions);
+        }
+
+        private static ModalController GetController(ContentOrientation Orientation)
+        {
+            Modal modal = Instance.GetModalByType(Orientation);
+            if (modal == default) return default;
+            if (Instance.activeModals.Count < 1) Instance.Container.SetActive(true); //? only set active if there is no other modal Open.
+            ModalController controller = Instantiate(modal.UI, Instance.Container.transform).GetComponent<ModalController>();
+            Instance.activeModals.Add(controller);
+            return controller;
+        }
+
+        private Modal GetModalByType(ContentOrientation type)
         {
             foreach (Modal modal in Modals)
             {
