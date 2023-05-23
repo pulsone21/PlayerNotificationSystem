@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
-
+using PNS;
 namespace PopUps
 {
     public class ModalController : MonoBehaviour
@@ -21,6 +21,8 @@ namespace PopUps
         [Header("Footer Settings")]
         [SerializeField] private Transform ButtonContainer;
         [SerializeField] private Transform ButtonPrefab;
+
+        private void Awake() => gameObject.SetActive(false);
 
         public void ShowModal(ModalContent content,
                             UnityAction OnOkAction,
@@ -75,7 +77,7 @@ namespace PopUps
 
         public void CloseModal()
         {
-            PopUpWindowManager.OnClosedModal(this);
+            NotificationManger.OnClosedModal(this);
             Destroy(gameObject);
         }
     }

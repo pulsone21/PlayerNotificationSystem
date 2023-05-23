@@ -6,6 +6,7 @@ using System;
 
 namespace PopUps
 {
+    public enum ContentOrientation { Vertical, Horizontal }
     [System.Serializable]
     public class ModalContent
     {

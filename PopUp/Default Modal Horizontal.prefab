@@ -205,7 +205,7 @@ PrefabInstance:
     - target: {fileID: 6035572490936831603, guid: f2b029a148952ff41a7719704a31f75c,
         type: 3}
       propertyPath: m_Name
-      value: Default Modal (1)
+      value: Default Modal Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 6035572490936831612, guid: f2b029a148952ff41a7719704a31f75c,
         type: 3}
