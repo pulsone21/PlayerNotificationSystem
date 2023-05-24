@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using PNS;
-namespace PopUps
+
+namespace PNS.Modals
 {
     public class ModalTester : MonoBehaviour
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-namespace PopUps
+namespace PNS.Modals
 {
     public enum ContentOrientation { Vertical, Horizontal }
     [System.Serializable]

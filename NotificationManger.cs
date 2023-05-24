@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tooltips;
-using PopUps;
+using PNS.Tooltips;
+using PNS.Modals;
+using PNS.Popups;
 using UnityEngine.Events;
 
 namespace PNS
@@ -105,13 +106,31 @@ namespace PNS
         #endregion
 
         #region PopUp
+
         [Space(5f), Header("PopUp Settings")]
         [SerializeField] private bool enablePopup;
-        public static bool PopUp() => Instance.ShowPopup();
-
-        private bool ShowPopup()
+        [SerializeField] private Transform PopUpContainer;
+        [SerializeField] private List<Popup> PopUps;
+        public static bool PopUp(PopupType type, string text, float displayTime = 1.5f)
         {
-            return true;
+            if (!Instance.enablePopup)
+            {
+                Debug.LogError("PopUps are not enabled!");
+                return false;
+            }
+            return Instance.ShowPopup(type, text, displayTime);
+        }
+        private bool ShowPopup(PopupType type, string text, float displayTime = 1.5f)
+        {
+            foreach (Popup popup in PopUps)
+            {
+                if (popup.Type == type)
+                {
+                    return Instantiate(popup.UI, PopUpContainer).Show(text, type, displayTime);
+                }
+            }
+            Debug.LogError($"PopUp with Type: {type} are not in the list");
+            return false;
         }
 
         #endregion

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PopUps
+namespace PNS.Popups
 {
     [System.Serializable]
-    public class Modal
+    public class Popup
     {
-        public ContentOrientation Orientation;
-        public GameObject UI;
+        public PopupType Type;
+        public PopupController UI;
     }
 }

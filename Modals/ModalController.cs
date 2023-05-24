@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
-using PNS;
-namespace PopUps
+
+namespace PNS.Modals
 {
     public class ModalController : MonoBehaviour
     {

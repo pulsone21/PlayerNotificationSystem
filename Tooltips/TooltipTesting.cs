@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using PNS;
 
-
-namespace Tooltips
+namespace PNS.Tooltips
 {
     public class TooltipTesting : MonoBehaviour
     {

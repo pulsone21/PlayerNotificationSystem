@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PopUps
+namespace PNS.Modals
 {
     public class ModalAction
     {
