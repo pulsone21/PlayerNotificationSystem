@@ -22,6 +22,12 @@ namespace PNS
             {
                 Instance = this;
             }
+            _popUps = new Dictionary<PopupType, PopupController>(){
+                {PopupType.Positive, _positivePopup ?? null},
+                {PopupType.Neutral, _neutralPopup ?? null},
+                {PopupType.Negative, _negativePopup ?? null}
+            };
+
         }
 
         #region Tooltip
@@ -108,26 +114,27 @@ namespace PNS
         #region PopUp
 
         [Space(5f), Header("PopUp Settings")]
-        [SerializeField] private bool enablePopup;
-        [SerializeField] private Transform PopUpContainer;
-        [SerializeField] private List<Popup> PopUps;
-        public static bool PopUp(PopupType type, string text, float displayTime = 1.5f)
+        [SerializeField] private bool _enablePopup;
+        [SerializeField] private Transform _popUpContainer;
+        [SerializeField] private PopupController _positivePopup, _neutralPopup, _negativePopup;
+        [SerializeField] private float _defaultDisplayTime = 1.5f;
+        private Dictionary<PopupType, PopupController> _popUps;
+        public static bool PopUp(PopupType type, string text, float displayTime = 0f)
         {
-            if (!Instance.enablePopup)
+            if (!Instance._enablePopup)
             {
                 Debug.LogError("PopUps are not enabled!");
                 return false;
             }
-            return Instance.ShowPopup(type, text, displayTime);
+            return Instance.ShowPopup(type, text, displayTime == 0f ? Instance._defaultDisplayTime : displayTime);
         }
-        private bool ShowPopup(PopupType type, string text, float displayTime = 1.5f)
+        private bool ShowPopup(PopupType type, string text, float displayTime)
         {
-            foreach (Popup popup in PopUps)
+            if (_popUps[type] != null)
             {
-                if (popup.Type == type)
-                {
-                    return Instantiate(popup.UI, PopUpContainer).Show(text, type, displayTime);
-                }
+                PopupController pc = Instantiate(_popUps[type]).GetComponent<PopupController>();
+                pc.transform.SetParent(_popUpContainer, false);
+                return pc.Show(text, type, displayTime);
             }
             Debug.LogError($"PopUp with Type: {type} are not in the list");
             return false;

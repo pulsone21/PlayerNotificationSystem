@@ -1,19 +1,20 @@
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
-
+using UnityEngine.UI;
 namespace PNS.Popups
 {
     public enum PopupType { Positive, Negative, Neutral }
     public class PopupController : MonoBehaviour
     {
-        // TODO -> Popup does not Scale Correctly on instantiation
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private CanvasGroup canvas;
+        private void Awake() => gameObject.SetActive(false);
         public bool Show(string content, PopupType type, float displayTime)
         {
             text.text = content;
-            canvas.DOFade(0, displayTime).onComplete += () => Destroy(gameObject);
+            gameObject.SetActive(true);
+            canvas.DOFade(0, 1.5f).SetDelay(displayTime).onComplete += () => Destroy(gameObject);
             return type == PopupType.Positive || type == PopupType.Neutral;
         }
     }

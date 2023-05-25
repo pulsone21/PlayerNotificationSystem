@@ -1,1 +1,4 @@
-// TODO Write Readme
+# Dependencies
+
+- DoTween
+- TextMeshPro

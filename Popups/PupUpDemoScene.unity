@@ -840,15 +840,15 @@ MonoBehaviour:
   ModalContainer: {fileID: 0}
   Modals: []
   activeModals: []
-  enablePopup: 1
-  PopUpContainer: {fileID: 630205665}
-  PopUps:
-  - Type: 0
-    UI: {fileID: 6359537609300937867, guid: bd871c9b7835ffa4ab1aaeb035b58a36, type: 3}
-  - Type: 2
-    UI: {fileID: 8868102216804698321, guid: a7bcda5ee988f564280fd703a04c4aca, type: 3}
-  - Type: 1
-    UI: {fileID: 7320003286657550183, guid: 26faff57877dd21468cb3b614998013c, type: 3}
+  _enablePopup: 1
+  _popUpContainer: {fileID: 630205665}
+  _positivePopup: {fileID: 6359537609300937867, guid: bd871c9b7835ffa4ab1aaeb035b58a36,
+    type: 3}
+  _neutralPopup: {fileID: 8868102216804698321, guid: a7bcda5ee988f564280fd703a04c4aca,
+    type: 3}
+  _negativePopup: {fileID: 7320003286657550183, guid: 26faff57877dd21468cb3b614998013c,
+    type: 3}
+  _defaultDisplayTime: 5
   enableEventLog: 0
 --- !u!114 &1389595233
 MonoBehaviour:

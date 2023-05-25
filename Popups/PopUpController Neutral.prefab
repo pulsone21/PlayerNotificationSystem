@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 4859638747793625883, guid: bd871c9b7835ffa4ab1aaeb035b58a36,
         type: 3}
       propertyPath: m_Name
-      value: PopUpController
+      value: PopUpController Neutral
       objectReference: {fileID: 0}
     - target: {fileID: 6134368350914836894, guid: bd871c9b7835ffa4ab1aaeb035b58a36,
         type: 3}
@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 6405168074279176249, guid: bd871c9b7835ffa4ab1aaeb035b58a36,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6405168074279176249, guid: bd871c9b7835ffa4ab1aaeb035b58a36,
         type: 3}
@@ -45,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 6405168074279176249, guid: bd871c9b7835ffa4ab1aaeb035b58a36,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6405168074279176249, guid: bd871c9b7835ffa4ab1aaeb035b58a36,
         type: 3}
@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 6405168074279176249, guid: bd871c9b7835ffa4ab1aaeb035b58a36,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6405168074279176249, guid: bd871c9b7835ffa4ab1aaeb035b58a36,
         type: 3}

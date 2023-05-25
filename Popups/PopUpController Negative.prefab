@@ -40,7 +40,7 @@ PrefabInstance:
     - target: {fileID: 6926722629962798913, guid: a7bcda5ee988f564280fd703a04c4aca,
         type: 3}
       propertyPath: m_Name
-      value: PopUpController Variant
+      value: PopUpController Negative
       objectReference: {fileID: 0}
     - target: {fileID: 8534859755121573316, guid: a7bcda5ee988f564280fd703a04c4aca,
         type: 3}
@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 8913736732205403235, guid: a7bcda5ee988f564280fd703a04c4aca,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8913736732205403235, guid: a7bcda5ee988f564280fd703a04c4aca,
         type: 3}
@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 8913736732205403235, guid: a7bcda5ee988f564280fd703a04c4aca,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8913736732205403235, guid: a7bcda5ee988f564280fd703a04c4aca,
         type: 3}
@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 8913736732205403235, guid: a7bcda5ee988f564280fd703a04c4aca,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8913736732205403235, guid: a7bcda5ee988f564280fd703a04c4aca,
         type: 3}
@@ -169,23 +169,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7bcda5ee988f564280fd703a04c4aca, type: 3}
---- !u!1 &9125588377897425143 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6926722629962798913, guid: a7bcda5ee988f564280fd703a04c4aca,
-    type: 3}
-  m_PrefabInstance: {fileID: 2198939486100246454}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4779025734431286609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9125588377897425143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c486c1982f3ad540a006050ced88121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  canvas: {fileID: 0}
