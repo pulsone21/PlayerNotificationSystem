@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PNS.Popups
 {
-    public class PopupTesting : MonoBehaviour
+    internal class PopupTesting : MonoBehaviour
     {
         private int counter;
         public void ShowPositive()

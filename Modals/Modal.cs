@@ -5,7 +5,7 @@ using UnityEngine;
 namespace PNS.Modals
 {
     [System.Serializable]
-    public class Modal
+    internal class Modal
     {
         public ContentOrientation Orientation;
         public GameObject UI;

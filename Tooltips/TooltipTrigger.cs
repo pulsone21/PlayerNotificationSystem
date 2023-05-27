@@ -4,7 +4,7 @@ using DG.Tweening;
 
 namespace PNS.Tooltips
 {
-    public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    internal class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public string Header;
         [TextArea] public string Description;

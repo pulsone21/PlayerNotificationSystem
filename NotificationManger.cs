@@ -56,7 +56,7 @@ namespace PNS
         [SerializeField] private List<Modal> Modals = new List<Modal>();
         [SerializeField] private List<ModalController> activeModals = new List<ModalController>();
 
-        public static void ConfirmationPopup(ModalContent Content, UnityAction OnOkAction, string OkLabel, UnityAction OnCancleAction, string CancleLabel, UnityAction OnAlternativeAction = null, string alternativeLable = null)
+        public static void ConfirmationModal(ModalContent Content, UnityAction OnOkAction, string OkLabel, UnityAction OnCancleAction, string CancleLabel, UnityAction OnAlternativeAction = null, string alternativeLable = null)
         {
             if (!Instance.enableModal) return;
             ModalController controller = GetController(Content.Orientation);
@@ -64,7 +64,7 @@ namespace PNS
             controller.ShowModal(Content, OnOkAction, OkLabel, OnCancleAction, OnAlternativeAction, CancleLabel, alternativeLable);
         }
 
-        public static void InformationPopup(ModalContent Content, UnityAction OnOkAction, string OkLabel)
+        public static void InformationModal(ModalContent Content, UnityAction OnOkAction, string OkLabel)
         {
             if (!Instance.enableModal) return;
             ModalController controller = GetController(Content.Orientation);
@@ -72,7 +72,7 @@ namespace PNS
             controller.ShowModal(Content, OnOkAction, OkLabel);
         }
 
-        public static void CustomPopup(ModalContent Content, List<ModalAction> Actions)
+        public static void CustomModal(ModalContent Content, List<ModalAction> Actions)
         {
             if (!Instance.enableModal) return;
             ModalController controller = GetController(Content.Orientation);
@@ -103,7 +103,7 @@ namespace PNS
             Debug.LogError($"ModalType {type} not found in PopUpWindowManager List!");
             return default;
         }
-        public static void OnClosedModal(ModalController modalController)
+        internal static void OnClosedModal(ModalController modalController)
         {
             if (!Instance.enableModal) return;
             Instance.activeModals.Remove(modalController);

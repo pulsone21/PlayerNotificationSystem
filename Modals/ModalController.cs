@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace PNS.Modals
 {
-    public class ModalController : MonoBehaviour
+    internal class ModalController : MonoBehaviour
     {
         [Header("Header Settings")]
         [SerializeField] private TextMeshProUGUI HeaderText;

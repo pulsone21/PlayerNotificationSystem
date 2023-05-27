@@ -7,7 +7,7 @@ using System;
 namespace PNS.Modals
 {
     public enum ContentOrientation { Vertical, Horizontal }
-    [System.Serializable]
+    [Serializable]
     public class ModalContent
     {
         public readonly string Header;

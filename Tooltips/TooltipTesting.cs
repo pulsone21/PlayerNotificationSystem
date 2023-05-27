@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PNS.Tooltips
 {
-    public class TooltipTesting : MonoBehaviour
+    internal class TooltipTesting : MonoBehaviour
     {
         public void ShowTooltip()
         {

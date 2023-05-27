@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace PNS.Tooltips
 {
     [ExecuteInEditMode()]
-    public class Tooltip : MonoBehaviour
+    internal class Tooltip : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI Header;
         [SerializeField] private TextMeshProUGUI Text;

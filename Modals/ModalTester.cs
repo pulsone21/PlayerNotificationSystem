@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace PNS.Modals
 {
-    public class ModalTester : MonoBehaviour
+    internal class ModalTester : MonoBehaviour
     {
         public Sprite Image;
 
@@ -16,7 +16,7 @@ namespace PNS.Modals
                                     "It only contains Text and no image, also it has an Ok and Cancle Button. Also it is Horizontal Oriented",
                                     null,
                                     ContentOrientation.Horizontal);
-            NotificationManger.ConfirmationPopup(content, OkAction, "Ok", CancleAction, "Cancle");
+            NotificationManger.ConfirmationModal(content, OkAction, "Ok", CancleAction, "Cancle");
         }
 
         public void ShowInformationPopUp()
@@ -26,7 +26,7 @@ namespace PNS.Modals
                                         "It only contains Text and no image, also it has an Acknowledge Button. It is Vertical Oriented",
                                         null,
                                         ContentOrientation.Vertical);
-            NotificationManger.InformationPopup(content, AcknowledgeAction, "Acknowledge");
+            NotificationManger.InformationModal(content, AcknowledgeAction, "Acknowledge");
         }
 
         public void ShowCustomPopUp()
@@ -41,7 +41,7 @@ namespace PNS.Modals
                 new ModalAction(SecondAction, "SecondAction"),
                 new ModalAction(ThirdAction, "ThirdAction")
             };
-            NotificationManger.CustomPopup(content, actions);
+            NotificationManger.CustomModal(content, actions);
         }
         private void OkAction() => Debug.Log("This is a OkAction");
         private void CancleAction() => Debug.Log("This is a CancleAction");

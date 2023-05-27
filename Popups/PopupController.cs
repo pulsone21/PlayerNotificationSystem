@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace PNS.Popups
 {
     public enum PopupType { Positive, Negative, Neutral }
-    public class PopupController : MonoBehaviour
+    internal class PopupController : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private CanvasGroup canvas;
