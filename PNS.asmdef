@@ -3,7 +3,7 @@
     "rootNamespace": "PNS",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:2229c56e57cb4bc4ca2b03e88d97c234"
+        "GUID:ffc25277fa5f84436a050829c5334bc9"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
